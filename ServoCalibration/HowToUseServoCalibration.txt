@@ -1,18 +1,37 @@
 The Servo Calibration script is a script meant to measure the input and output responses of a hobby servo.
 
-The control pin for the servo should be attached to digital pin 9. The output response is recorded by measuring the resistance across the internal potentiometer of the servo. This will require some disassembly and soldering of the servo that is to be tested. When properly hooked up, the voltage representing the angle of the servo arm should be able to be measured across analog pin A0.
+The control pin for the servo should be attached to digital pin 9. The output response is recorded by measuring
+the resistance across the internal potentiometer of the servo. This will require some disassembly and soldering of
+the servo that is to be tested. When properly hooked up, the voltage representing the angle of the servo arm
+should be able to be measured across analog pin A0.
 
-The program must be run with the Arduino hooked up to a computer in order to communicate with the computer over the serial monitor. The serial monitor provides the data output that can be analyzed later on as well as allows the user to command the program to perform the required tests.
+The program must be run with the Arduino hooked up to a computer in order to communicate with the computer over
+the serial monitor. The serial monitor provides the data output that can be analyzed later on as well as allows
+the user to command the program to perform the required tests.
 
-The first test that a user should perform is the sweep and hold test. This is a slight modification of the servo sweep function in the Arduino example files. The test will simply sweep from 0 to 180 degrees, hold for a bit, and then sweep down again. This is useful for identifying the "dead zones" that may be present in your servo. The servo may only respond to a signal between a maximum deflection angle and a minimum deflection angle. The results from this test should allow you to find both the maximum and the minimum.
+The first test that a user should perform is the sweep and hold test. This is a slight modification of the servo
+sweep function in the Arduino example files. The test will simply sweep from 0 to 180 degrees, hold for a bit, and
+then sweep down again. This is useful for identifying the "dead zones" that may be present in your servo. The
+servo may only respond to a signal between a maximum deflection angle and a minimum deflection angle. The results
+from this test should allow you to find both the maximum and the minimum.
 
-Once the results from this test have been analyzed, the user should use option 5 in the main menu in order to change the maximum and minimum angles that the program uses for all other tests.
+Once the results from this test have been analyzed, the user should use option 5 in the main menu in order to
+change the maximum and minimum angles that the program uses for all other tests.
 
-The step response test starts the test with the input at 45 degrees, before stepping up to 135 degrees. These values can be changed before compiling if desired, although I would reccomend not venturing near either the maximum or minimum values of your servo deflection for this test.
+The step response test starts the test with the input at 45 degrees, before stepping up to 135 degrees. These
+values can be changed before compiling if desired, although I would reccomend not venturing near either the
+maximum or minimum values of your servo deflection for this test.
 
-The ramp response is equivalent to an impulse response. In this test, the input holds at the minimum value set by the user, which is 0 by default, and rises linearly to the maximum value, which defaults to 180. The speed of the movement is 180 degrees per second, although this can be changed by hand before compiling.
+The ramp response is equivalent to an impulse response. In this test, the input holds at the minimum value set by
+the user, which is 0 by default, and rises linearly to the maximum value, which defaults to 180. The speed of the
+movement is 180 degrees per second, although this can be changed by hand before compiling.
 
-The sinusoidal response creates and sinusoidal input with an amplitude of 60 degrees, although this range will automatically decrease itself if the maximum or minimum values prohibit an amplitude of this magnitude. The midpoint of this sinusoidal wave will be the midpoint between the maximum and minimum values.
+The sinusoidal response creates and sinusoidal input with an amplitude of 60 degrees, although this range will
+automatically decrease itself if the maximum or minimum values prohibit an amplitude of this magnitude. The
+midpoint of this sinusoidal wave will be the midpoint between the maximum and minimum values.
 
 
-Using these tests, the user should be able to scale the voltage readings to match the corresponding deflection angles, particularly with the step response, which will hold for a while in order to allow you to scale the plots appropriately. Once the values are scaled, the user can then use a tool like the System Identification toolbox in Matlab in order to characterize the performance of the hobby servo being tested with a transfer function.
+Using these tests, the user should be able to scale the voltage readings to match the corresponding deflection
+angles, particularly with the step response, which will hold for a while in order to allow you to scale the plots
+appropriately. Once the values are scaled, the user can then use a tool like the System Identification toolbox in
+Matlab in order to characterize the performance of the hobby servo being tested with a transfer function.
