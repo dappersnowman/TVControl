@@ -15,6 +15,7 @@ int minAngle = 0;
 void setup() {
   Serial.begin(9600);
   servo.attach(9);
+  analogReference(EXTERNAL);
 }
 
 void loop() {
