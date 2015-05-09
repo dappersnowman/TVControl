@@ -1,0 +1,3 @@
+void deploy() {
+  digitalWrite(EJECTIONCHARGEPIN);
+}
