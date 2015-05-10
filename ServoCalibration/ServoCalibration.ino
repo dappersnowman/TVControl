@@ -15,7 +15,7 @@ int minAngle = 0;
 void setup() {
   Serial.begin(9600);
   servo.attach(9);
-  analogReference(EXTERNAL);
+  //analogReference(EXTERNAL);
 }
 
 void loop() {
@@ -62,6 +62,7 @@ void loop() {
         delay(10);
       }
       minAngle = Serial.parseInt();
+      break;
     default:
       Serial.println("Bad input :(");
   }
@@ -262,7 +263,7 @@ void sinusoidalResponse() { //Need to fix ref calculation
   unsigned long tstart = millis();
   
   while((millis() - tstart) < (period * 2)) {
-    ref = range*(sin((((float)(millis()-tstart))*6.28) / ((float)period)));
+    ref = range*(sin((((float)(millis()-tstart))*6.28) / ((float)period))) + neutralPoint;
     servo.write(ref);
     Serial.print(millis() - tstart);
     Serial.print(" : ");

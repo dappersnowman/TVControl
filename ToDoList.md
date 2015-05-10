@@ -48,7 +48,7 @@ Supporting Library Functions
 		-Used for initialization, vector off mode, and in flight aborts
 		-Actual zero angles used may need to be found through hand calibration
 
--Parachute
+-Parachute - Finished
 	-deploy()
 		-Sends current to detonate black powder ejection charge
 
