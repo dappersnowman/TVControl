@@ -1,3 +1,10 @@
-#define EJECTIONCHARGEPIN 5
+#include "Parachute.h"
+#include "QueueLib.h"
 
-#include <Parachute.ino>
+void setup() {
+  
+}
+
+void loop() {
+  
+}
