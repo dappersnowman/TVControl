@@ -1,0 +1,22 @@
+#include <Servo.h> 
+ 
+Servo horiz; // Higher, Inner, on x axis
+Servo vert; //Lower, Outer, on y axis
+// create servo object to control a servo 
+ // variable to store the servo position 
+ int th; //Theta
+ int x; // x axis deflections
+ int y; // y axis deflections
+
+ 
+void gimbal() 
+{   
+  horiz.write(x);
+  vert.write(y);
+} 
+
+void setup()
+{
+  horiz.read(x);
+  vert.read(y);
+}
