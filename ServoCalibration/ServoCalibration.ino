@@ -16,6 +16,7 @@ void setup() {
   Serial.begin(9600);
   servo.attach(9);
   //analogReference(EXTERNAL);
+  servo.write(90);
 }
 
 void loop() {
@@ -89,7 +90,7 @@ void stepResponse() {
   Serial.println("Time (milli) : Input (deg) : Output (v)");
   unsigned long tstart = millis();
   
-  while ((millis() - tstart) < 1000) {
+  while ((millis() - tstart) < 2000) {
     if ((millis() - tstart) > 500) {
       ref = refStep;
     }
@@ -250,7 +251,7 @@ void rampResponse() {
 }
 
 void sinusoidalResponse() { //Need to fix ref calculation
-  int period = 1000; //milliseconds
+  int period = 2000; //milliseconds
   int neutralPoint = minAngle + ((maxAngle-minAngle)/2);
   int range = 60; //degrees
   if ((maxAngle-neutralPoint) < range) {
@@ -262,7 +263,7 @@ void sinusoidalResponse() { //Need to fix ref calculation
   Serial.println("Time (milli) : Input (deg) : Output (v)");
   unsigned long tstart = millis();
   
-  while((millis() - tstart) < (period * 2)) {
+  while((millis() - tstart) < (period * 3)) {
     ref = range*(sin((((float)(millis()-tstart))*6.28) / ((float)period))) + neutralPoint;
     servo.write(ref);
     Serial.print(millis() - tstart);
