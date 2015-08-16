@@ -1,34 +1,46 @@
 //Creates a two-dimensional queue.
 //For size, functions and global variables were used instead of classes
 
-float DataQueue[100000][12];
+#define ARRAYSIZE 1000
+#define EVENTSIZE 12
+
+float DataQueue[ARRAYSIZE][EVENTSIZE];
 int readPoint = 0;
 int writePoint = 0;
+float stagingArray[EVENTSIZE]; //global variables to pull values in and out of. Memory efficient!
+int x;
 
-void pushToQueue(float * event) {
-  DataQueue[writePoint] = event;
+void pushToQueue(void) {
+  for (int i=0; i<EVENTSIZE; i++) {
+    DataQueue[writePoint][i] = stagingArray[i];
+  }
+  
   writePoint += 1;
-  if (writePoint >= 100000) {
+  if (writePoint >= ARRAYSIZE) {
     writePoint = 0;
   }
 }
 
-float* pullFromQueue(void) {
-  float stagingArray[12];
-  stagingArray = DataQueue[readPoint];
+void pullFromQueue(void) {
+  for (int i=0; i<EVENTSIZE; i++) {
+    stagingArray[i] = DataQueue[readPoint][i];
+  }
   readPoint += 1;
-  if (readPoint >= 100000) {
+  if (readPoint >= ARRAYSIZE) {
     readPoint = 0;
   }
-  return stagingArray;
 }
 
-float* readFromQueue(void) {
-  float stagingArray[12];
-  stagingArray = DataQueue[readPoint];
-  return stagingArray;
+void readFromQueue(void) {
+  for (int i=0; i<EVENTSIZE; i++) {
+    stagingArray[i] = DataQueue[readPoint][i];
+  }
 }
 
 int countQueue(void) {
-  return (writePoint - readPoint);
+  x = (writePoint - readPoint);
+  if (x < 0) {
+    x = ((ARRAYSIZE - readPoint) + writePoint);
+  }
+  return x;
 }
