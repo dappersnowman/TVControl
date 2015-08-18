@@ -24,3 +24,20 @@ Queue Test Results
 		-New version used less memory
 		-New version is less flexible and requires more typing.
 			-Eh, at least it works.
+
+Multidimensional Queue Test Results
+-Redid original queue test with storing instances of arrays in the queue
+	-Results
+		-Worked like a beauty.
+		-Reworded some of the original functions to better support flexible array sizes.
+
+Sensors Test
+-Collected sensor data and spit it out to the serial port.
+	-Results
+		-Previous sensors unit test code was not present in the Github repo; had to start from scratch
+		-Modeled test code on test code supplied by Adafruit
+		-Accurate data can be taken, but Arduino stops after a handful of iterations
+		-It is possible that the Arduino is not deleting every data point, leading to a memory leak
+		-Must fix memory issues.
+		-Also, cannot run other trials after running barometer trial. Not a big problem, but should be looked at.
+		-Once memory issues are fixed, should record extended data in console and plot the noise in the idle signal.
