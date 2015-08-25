@@ -41,3 +41,11 @@ Sensors Test
 		-Must fix memory issues.
 		-Also, cannot run other trials after running barometer trial. Not a big problem, but should be looked at.
 		-Once memory issues are fixed, should record extended data in console and plot the noise in the idle signal.
+
+Sensors Test 8/24
+	-Results
+		-As unit tests get more involved, I split off unit testing into a new branch in order to clean up repo history.
+		-Changed event object to global object, fixing the runaway memory leak.
+		-Well, maybe not a memory leak, more like a memory flood.
+		-Anyway, the Arduino can now spit out as much data as it needs. The limited storage on the Arduino may be an issue during flight. Not sure until I test out radios.
+		-Sometimes, there is a bug where I cannot run two trials in a row one after the other. I'm sure this is a bug with the unit test code and may not be present on the flight.

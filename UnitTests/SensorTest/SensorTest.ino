@@ -11,6 +11,7 @@ Adafruit_BMP085_Unified bmp = Adafruit_BMP085_Unified(18001);
 Adafruit_L3GD20_Unified gyro = Adafruit_L3GD20_Unified(20);
 
 int t;
+sensors_event_t event;
 
 void setup() {
   Serial.begin(9600);
@@ -50,7 +51,7 @@ void loop() {
       //accel
       t = millis();
       while ((millis() - t) < 20000) {
-        sensors_event_t event;
+        //sensors_event_t event;
         accel.getEvent(&event);
         Serial.print("Time: "); Serial.print(millis() - t); Serial.print(" milliseconds ");
         Serial.print("X: "); Serial.print(event.acceleration.x); Serial.print(" ");
@@ -63,7 +64,7 @@ void loop() {
       //gyro
       t = millis();
       while ((millis() - t) < 20000) {
-        sensors_event_t event;
+        //sensors_event_t event;
         gyro.getEvent(&event);
         Serial.print("Time: "); Serial.print(millis() - t); Serial.print(" milliseconds ");
         Serial.print("X: "); Serial.print(event.gyro.x); Serial.print(" ");
@@ -76,7 +77,7 @@ void loop() {
       //mag
       t = millis();
       while ((millis() - t) < 20000) {
-        sensors_event_t event;
+        //sensors_event_t event;
         mag.getEvent(&event);
         Serial.print("Time: "); Serial.print(millis() - t); Serial.print(" milliseconds ");
         Serial.print("X: "); Serial.print(event.magnetic.x); Serial.print(" ");
@@ -89,7 +90,7 @@ void loop() {
       //bar
       t = millis();
       while ((millis() - t) < 5000) {
-        sensors_event_t event;
+        //sensors_event_t event;
         bmp.getEvent(&event);
         float temperature;
         bmp.getTemperature(&temperature);
