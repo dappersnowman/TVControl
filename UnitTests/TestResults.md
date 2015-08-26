@@ -49,3 +49,11 @@ Sensors Test 8/24
 		-Well, maybe not a memory leak, more like a memory flood.
 		-Anyway, the Arduino can now spit out as much data as it needs. The limited storage on the Arduino may be an issue during flight. Not sure until I test out radios.
 		-Sometimes, there is a bug where I cannot run two trials in a row one after the other. I'm sure this is a bug with the unit test code and may not be present on the flight.
+
+String Response Test 8/25
+-Investigating ways to respond to strings passed through serial
+	-Results
+		-Test successful
+		-Previous methods relied on char arrays, just discovered the Arduino String class, new method is much cleaner
+		-Was going to test radio broadcasting today, but one of the radios lost a wire, do not have any solder to fix.
+		-Need to purchase solder!
