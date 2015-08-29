@@ -57,3 +57,9 @@ String Response Test 8/25
 		-Previous methods relied on char arrays, just discovered the Arduino String class, new method is much cleaner
 		-Was going to test radio broadcasting today, but one of the radios lost a wire, do not have any solder to fix.
 		-Need to purchase solder!
+
+ServoResponseToGyro 8/28
+-Mapping movement of the gyro to the deflection of the servo.
+	-Results
+		-Test successful
+		-Successfully mapped rotational deflection, rotational velocity, and rotational acceleration of the gyro to the servo head.
